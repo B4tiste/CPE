@@ -63,7 +63,7 @@ balanced = True
 
 stk = Stack()
 
-for i in text :
+for i in text:
     if i in char:
         if i in '([{':
             stk.push(i)
@@ -81,9 +81,28 @@ for i in text :
                 else:
                     balanced = False
                     break
-    
+
 print('The text is balanced' if balanced else 'The text is not balanced')
 
 # ============= Q4 =============
 print('\n============= Q4 =============\n')
 
+# Tables de hachage
+
+"""
+Implémentez une classe HashTable. Utilisez-la pour écrire un programme qui compte le nombre d’occurrences de
+chaque mot d’un texte. Complétez ensuite ce programme pour qu’il affiche toutes les occurrences
+d’un mot recherché, et les affiche sous la forme :
+
+Le mot 'algorithme' apparaît :
+- à la ligne 3, mot 4
+- à la ligne 7, mot 8
+- à la ligne 17, mot 14
+"""
+
+texte = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod, urna eget aliquet aliquet, nisl nisl aliquet nisl, eget tincidunt nisl nisl eget nisl. Sed euismod,"
+
+# class HashTable:
+
+
+        
