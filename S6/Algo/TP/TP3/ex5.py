@@ -16,4 +16,4 @@ def hanoi(n, a='départ', b='intermédiaire', c='objectif', z=1):
 		hanoi(n-1, b, a, c)
 
 
-hanoi(3)
+hanoi(5)

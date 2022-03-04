@@ -11,10 +11,7 @@ Suite de fibonnacci :
 cpt = 0
 # Fonction fibonacci récursive
 def fibonacci1(n):
-    if n == 0:
-        return 0
-    elif n == 1 :
-        return 1
+    if n <= 1 : return 1
     else :
         return fibonacci1(n-1) + fibonacci1(n-2)
 
@@ -139,3 +136,4 @@ def fibonacci3(n, a=1, b=1):
 t1 = time.time()
 print(f"3F(400) : {fibonacci3(400)}")
 print(f"Temps de calcul de 3F400 : {(time.time() - t1)*1000} ms")
+
