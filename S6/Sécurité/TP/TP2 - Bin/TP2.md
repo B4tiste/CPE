@@ -1,7 +1,5 @@
 # Sécurité TP 1
 
-## Contexte 
-
 Travail dans le terminal -> "Dans la VM Docker"
 
 ### Exercice 1
@@ -14,7 +12,6 @@ Se rendre dans le répertoire niveau 1 et retrouver le mot de passe
 cd niveau1
 gdb ./niveau1
 ```
-
 
 ```console
 gdb-peda$ pdisass main
@@ -147,8 +144,7 @@ On voit bien que le code s'arrête au niveau de l'instruction strcmp() et permet
 
 #### Consigne :
 
-Utilisation de la commande ni dans gdb pour passer chaque instruction pas à pas
-
+Utilisation de la commande **ni** dans gdb pour passer chaque instruction pas à pas et voir l'évolution de la mémoire et des registres
 
 On voit que le mot de passe est de longueur 9 :
 
@@ -156,8 +152,7 @@ On voit que le mot de passe est de longueur 9 :
 0x080485bb <+215>:   cmp    DWORD PTR [esp+0x28],0x9
 ```
 
-
-On observe la présence de 9 instructions de remplissage : 
+On observe la présence de 9 instructions de remplissage :
 
 ```console
 0x08048500 <+28>:    mov    BYTE PTR [esp+0x43],0x62
@@ -171,10 +166,7 @@ On observe la présence de 9 instructions de remplissage :
 0x08048528 <+68>:    mov    BYTE PTR [esp+0x4b],0x21
 ```
 
-
 Les 9 valeurs héxadécimales à la fin de chaque instructions sont concaténées et deviennent la chaîne de char : 'bull$hit'
-
-
 
 ### Exercice 3
 
@@ -184,9 +176,9 @@ Trouver le mot de passe du niveau 3
 
 On sait que le mot de passe est long de 14 char, auxquels sont aplliqués un XOR. En appliquant un décodage XOR avec la clé 0xFE, on obtient "xorebull$hit"
 
-### Exercice 4 
+### Exercice 4
 
-#### Consigne : 
+#### Consigne :
 
 Se rendre dans le répertoire «niveau4» et exploiter le binaire pour:
 
