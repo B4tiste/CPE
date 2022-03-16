@@ -145,4 +145,3 @@ Le caractère `'` provoque des erreurs car il est utilisé comme un caractère d
 ### Exercice 10 :
 
 #### Consigne : Trouver le nom des bases de données et tables existantes
-
