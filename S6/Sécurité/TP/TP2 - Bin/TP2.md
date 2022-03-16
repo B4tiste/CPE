@@ -141,4 +141,55 @@ Legend: code, data, rodata, value
 Breakpoint 3, 0x080485b3 in main ()
 ```
 
-On voit bien que le code s'arrête au niveau de l'instruction strcmp() et permet de voir les arguments passés à la fonction de comparaison, et on voit "MeG@pass", il s'agit du mot de passe avec lequel est comparé ce qu'on a rentré, c'est donc le mot de passe maître du programme.
+On voit bien que le code s'arrête au niveau de l'instruction strcmp() et permet de voir les arguments passés à la fonction de comparaison, et on voit "MeG@pass" stocké à l'adresse 0x80486c0 (On peut aussi visualiser le contenu en mémoire à cette adresse en utilisant le commande x/2s), il s'agit du mot de passe avec lequel est comparé ce qu'on a rentré, qui est stocké dans le registre EAX, c'est donc le mot de passe maître du programme.
+
+### Exercice 2
+
+#### Consigne :
+
+Utilisation de la commande ni dans gdb pour passer chaque instruction pas à pas
+
+
+On voit que le mot de passe est de longueur 9 :
+
+```console
+0x080485bb <+215>:   cmp    DWORD PTR [esp+0x28],0x9
+```
+
+
+On observe la présence de 9 instructions de remplissage : 
+
+```console
+0x08048500 <+28>:    mov    BYTE PTR [esp+0x43],0x62
+0x08048505 <+33>:    mov    BYTE PTR [esp+0x44],0x75
+0x0804850a <+38>:    mov    BYTE PTR [esp+0x45],0x6c
+0x0804850f <+43>:    mov    BYTE PTR [esp+0x46],0x6c
+0x08048514 <+48>:    mov    BYTE PTR [esp+0x47],0x24
+0x08048519 <+53>:    mov    BYTE PTR [esp+0x48],0x68
+0x0804851e <+58>:    mov    BYTE PTR [esp+0x49],0x69
+0x08048523 <+63>:    mov    BYTE PTR [esp+0x4a],0x74
+0x08048528 <+68>:    mov    BYTE PTR [esp+0x4b],0x21
+```
+
+
+Les 9 valeurs héxadécimales à la fin de chaque instructions sont concaténées et deviennent la chaîne de char : 'bull$hit'
+
+
+
+### Exercice 3
+
+#### Consigne :
+
+Trouver le mot de passe du niveau 3
+
+On sait que le mot de passe est long de 14 char, auxquels sont aplliqués un XOR. En appliquant un décodage XOR avec la clé 0xFE, on obtient "xorebull$hit"
+
+### Exercice 4 
+
+#### Consigne : 
+
+Se rendre dans le répertoire «niveau4» et exploiter le binaire pour:
+
+1 / Appeler la fonction «callMeMaybe» (Celle-ci n’est pas utilisée  par le programme).
+
+2 / Obtenir un shell «root»
