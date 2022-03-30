@@ -1,0 +1,15 @@
+{
+    "java.configuration.runtimes": [
+        {
+          "name": "Zulu",
+          "path": "C:\\Program Files\\Zulu\\zulu-11\\bin\\javaw.exe",
+          "default": true
+        },
+        
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1F3306",
+        "titleBar.activeBackground": "#2C4708",
+        "titleBar.activeForeground": "#F5FDEC"
+    }
+}

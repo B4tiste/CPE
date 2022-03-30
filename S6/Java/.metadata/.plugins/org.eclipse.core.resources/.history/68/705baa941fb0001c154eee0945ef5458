@@ -1,0 +1,4 @@
+module FilRouge {
+	requires javafx.graphics;
+	requires javafx.controls;
+}

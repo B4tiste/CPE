@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\baptiste_laloi\Documents\Batiste Laloi\Java\.metadata\.plugins\org.eclipse.jdt.core
+2555187779.index
+3823697542.index
