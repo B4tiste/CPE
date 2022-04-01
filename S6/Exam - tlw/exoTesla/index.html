@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="remplir_accessoires()">
     <!-- Insérer votre code HTML *en-dessous* de cette ligne -->
 
     <header>
@@ -28,64 +28,90 @@
         </nav>
     </header>
 
-        <section id="model3" class="page">
-            <h1>Model 3</h1>
-            <a href="https://tesla.com" target="_blank" id="reserver">Reserver un essais</a>
-            <div class="bas-section">
-                <a href="#" class="btn-config">btnconfig</a>
-                <a href="#" class="btn-vehicules">btnvehicules</a>
-                <p>Paragraphe</p>
-                <img src="./images/fleche.gif" alt="Défiler écran" id="model3-img">
-            </div>
-        </section>
+    <section id="model3" class="page">
+        <h1>Model 3</h1>
+        <a href="https://tesla.com" target="_blank" id="reserver">Reserver un essais</a>
+        <div class="bas-section">
+            <a href="#" class="btn-config">btnconfig</a>
+            <a href="#" class="btn-vehicules">btnvehicules</a>
+            <p>Paragraphe</p>
+            <img src="./images/fleche.gif" alt="Défiler écran" id="model3-img">
+        </div>
+    </section>
 
-        <section id="modelS" class="page">
-            <h1>Model S</h1>
-            <div class="bas-section">
-                <a href="#" class="btn-config">btnconfig</a>
-                <a href="#" class="btn-vehicules">btnvehicules</a>
-            </div>
-        </section>
+    <section id="modelS" class="page">
+        <h1>Model S</h1>
+        <div class="bas-section">
+            <a href="#" class="btn-config">btnconfig</a>
+            <a href="#" class="btn-vehicules">btnvehicules</a>
+        </div>
+    </section>
 
-        <section id="powerwall" class="page">
-            <h1>Powerwall</h1>
-            <h2>Sous titre</h2>
-            <div class="bas-section">
-                <a href="" class="btn-config">btnconfig</a>
-            </div>
-        </section>
+    <section id="powerwall" class="page">
+        <h1>Powerwall</h1>
+        <h2>Sous titre</h2>
+        <div class="bas-section">
+            <a href="" class="btn-config">btnconfig</a>
+        </div>
+    </section>
 
-        <section id="accessoires" class="page">
-            <h1>Accessoire</h1>
-            <div id="grid-container">
+    <section id="accessoires" class="page">
+        <h1>Accessoire</h1>
+        <div id="grid-container">
+            <template id="template_accessoires">
+                <div class="grid-item">
+                    <img src="images/{{accessoires-image}}.jpg">
+                    <div class="inner">
+                        <h2>{{accessoires-titre}}</h2>
+                        <p>
+                            {{accessoires-texte}}
+                        </p>
+                    </div>
+                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
+                </div>
+            </template>
 
-            </div>
-        </section>
+            <template id="template_accessoires">
+                <div class="grid-item">
+                    <img src="images/{{accessoires-image}}.jpg">
+                    <div class="inner">
+                        <h2>{{accessoires-titre}}</h2>
+                        <p>
+                            {{accessoires-texte}}
+                        </p>
+                    </div>
+                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
+                </div>
+            </template>
 
-        <footer id="footer-tesla">
-            <ul>
-                <li><a href="#model3">Model3</a></li>
-                <li><a href="#modelS">ModelS</a></li>
-                <li><a href="#powerwall">Powerwall</a></li>
-                <li><a href="#accessoires">Accessoires</a></li>
-            </ul>
-        </footer>
+            <template id="template_accessoires">
+                <div class="grid-item">
+                    <img src="images/{{accessoires-image}}.jpg">
+                    <div class="inner">
+                        <h2>{{accessoires-titre}}</h2>
+                        <p>
+                            {{accessoires-texte}}
+                        </p>
+                    </div>
+                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <footer id="footer-tesla">
+        <ul>
+            <li><a href="#model3">Model3</a></li>
+            <li><a href="#modelS">ModelS</a></li>
+            <li><a href="#powerwall">Powerwall</a></li>
+            <li><a href="#accessoires">Accessoires</a></li>
+        </ul>
+    </footer>
     </div>
 
     <!-- Insérer votre code HTML *au-dessus* de cette ligne -->
 
-    <template id="template_accessoires">
-        <div class="grid-item">
-            <img src="images/{{accessoires-image}}.jpg">
-            <div class="inner">
-                <h2>{{accessoires-titre}}</h2>
-                <p>
-                    {{accessoires-texte}}
-                </p>
-            </div>
-            <a href="www.tesla.com/fr_fr">En savoir plus</a>
-        </div>
-    </template>
+
 
 </body>
 
