@@ -1,6 +1,10 @@
 @font-face {
     font-family: "Gotham Medium";
-    src: url('Gotham Medium.otf');
+    src: url("Gotham Medium.otf");
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,7 +25,15 @@ p {
     position: relative;
 }
 
-.page section {
+.page a {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.page {
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,16 +41,101 @@ p {
     text-align: center;
 }
 
+h1 {
+    font-size: 40px;
+    font-weight: 100;
+    padding-top: 100px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 100;
+    color: gray;
+    margin-top: 10px;
+}
+
+header {
+    position: fixed;
+    margin: 0 auto;
+    z-index: 2;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    display: flex;
+    text-align: center;
+}
+
+.navbar ul li {
+    min-width: 150px;
+    list-style: none;
+}
+
+.navbar ul li a {
+    font-size: 14px;
+    color: #393c41;
+}
+
+.btn-config,
+.btn-vehicules {
+    opacity: 0.75;
+    padding: 10px 20px 10px 20px;
+    margin: 0px 10px 0px 10px;
+    border: none;
+    border-radius: 50px;
+}
+
+.btn-config {
+    background-color: #171a20;
+    color: white;
+}
+
+.btn-vehicules {
+    background-color: white;
+    color: #171a20;
+}
+
 #model3 {
-    background-image: url("/images/model3.jpg");
+    background-image: url("./images/model3.jpg");
+}
+
+#model3 p {
+    margin-top: 20px;
+}
+
+#model3 .bas-section {
+    bottom: 0px;
+}
+
+#model3 #reserver {
+    font-size: 14px;
+    color: #393c41;
+    text-decoration: underline;
+}
+
+#model3 #reserver:hover {
+    text-decoration: solid;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    /* Changer la couleur de la ligne ?*/
+}
+
+#model3-img {
+    width: 100px;
 }
 
 #modelS {
-    background-image: url("/images/modelS.jpg");
+    background-image: url("./images/modelS.jpg");
 }
 
 #powerwall {
-    background-image: url("/images/solarPanels.jpg");
+    background-image: url("./images/solarPanels.jpg");
 }
 
 .bas-section {
@@ -53,17 +150,12 @@ svg {
     position: absolute;
 }
 
-.navbar {
-    display: flex;
-    justify-content: center;
-}
-
 #footer-tesla {
     text-align: center;
     bottom: 0px;
     left: 0;
     right: 0;
-    position: absolute;
+    position: relative;
 }
 
 #footer-tesla ul {
