@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "Gotham Medium";
+    src: url('Gotham Medium.otf');
+}
+
+body {
+    font-family: Gotham Medium, Helvetica, Arial, sans-serif;
+}
+
+body,
+div,
+section,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    position: relative;
+}
+
+.page section {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+#model3 {
+    background-image: url("/images/model3.jpg");
+}
+
+#modelS {
+    background-image: url("/images/modelS.jpg");
+}
+
+#powerwall {
+    background-image: url("/images/solarPanels.jpg");
+}
+
+.bas-section {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 50px;
+}
+
+svg {
+    display: flex;
+    position: absolute;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+#footer-tesla {
+    text-align: center;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+#footer-tesla ul {
+    text-align: center;
+}
+
+#footer-tesla li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#footer-tesla a {
+    color: #393c41;
+    text-decoration: none;
+    font-size: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    padding: 10px;
+    margin: 0 5%;
+    justify-items: center;
+}
+
+.grid-item {
+    margin: 0 30px;
+    max-width: 320px;
+    height: 530px;
+    position: relative;
+}
+
+.grid-item img {
+    width: 100%;
+}
+
+.inner {
+    padding: 30px;
+    font-size: 0.9em;
+}
+
+.inner p {
+    margin-bottom: 30px;
+    color: #171a20;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.inner h2 {
+    color: #171a20;
+    padding-top: 0px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+.grid-item a {
+    border-radius: 50px;
+    opacity: 0.75;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border: none;
+    background-color: #171a20;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    white-space: nowrap;
+}

@@ -1,0 +1,38 @@
+Titre du navigateur : Voitures électriques, énergie solaire et propre | Telsa France
+
+Sections :
+    1. Titre : Model 3
+       Lien 1 ("reserver") : Réservez un essai sans contact
+                             URL : https://www.tesla.com/fr_fr/drive
+       Lien 2 ("btn-config") : Configuration personnalisée 
+                               URL : https://www.tesla.com/fr_fr/model3/design
+       Lien 3 ("btn-vehicules") : Véhicules disponibles
+                                  URL : https://www.tesla.com/fr_fr/inventory/new/m3
+
+    2. Titre : Model S
+       Lien 1 ("btn-config") : Configuration personnalisée
+                               URL : https://www.tesla.com/fr_fr/models/design
+       Lien 2 ("btn-vehicules") : Véhicules disponibles
+                                  URL : https://www.tesla.com/fr_fr/inventory/new/m3
+
+    3. Titre : Systèmes d'énergie solaire et Powerwalls
+       Sous-titre : De l’énergie pour tous vos besoins
+       Lien ("btn-config") : En savoir plus
+                             URL : https://www.tesla.com/fr_fr/powerwall
+
+    4. Titre : Accessoires
+
+Barre de navigation : 
+    Model 3   
+    Model S   
+    Powerwall   
+    Accessoires
+
+Pied de page (lien - titre):
+    https://www.tesla.com/fr_fr/about - Tesla © 2021
+    https://www.tesla.com/fr_fr/about/legal - Mentions légales
+    https://www.tesla.com/fr_fr/contact - Contact
+    https://www.tesla.com/fr_fr/careers - Carrières
+    https://www.tesla.com/fr_fr/updates - Newsletter
+    https://www.tesla.com/fr_fr/blog - Actualités
+    https://www.tesla.com/fr_fr/findus/list - Localisations

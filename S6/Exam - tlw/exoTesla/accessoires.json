@@ -1,0 +1,20 @@
+{
+    "tableau_accessoires" : [
+        {
+            "titre": "Connecteur Universel",
+            "texte": "Chaque Connecteur Universel est livré avec un câble de 6 mètres permettant une flexibilité maximale dans les lieux de stationnement.",
+            "image": "cable"
+        },
+        {
+            "titre": "Veste",
+            "texte": "La veste Tesla présente un « T » brodé sur le côté gauche de la poitrine et l'emblème Tesla brodé sur le devant. Fermeture centrale sur le devant avec rabat tempête.",
+            "image": "veste"
+        },
+        {
+            "titre": "Kit Aero Model 3",
+            "texte": "Enjoliveur d'origine pour jante 18\" Aero pour Model 3.",
+            "image": "enjoliveur"
+        }
+    ]
+}
+
