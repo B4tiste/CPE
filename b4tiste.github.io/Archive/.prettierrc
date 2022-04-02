@@ -1,0 +1,5 @@
+{
+  "_comment": "Fichier de configuration de Prettier",
+  "tabWidth": 4,
+  "useTabs": true
+}
