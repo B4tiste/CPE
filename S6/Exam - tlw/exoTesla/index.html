@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>Tesla</title>
 
-    <script type="text/javascript" src="./script.js"></script>
-
     <link rel="icon" href="./images/favicon.png">
-
+    
     <link rel="stylesheet" href="./style.css">
+
+    <script src="./script.js" defer></script>
 
 </head>
 
-<body onload="remplir_accessoires()">
+<body>
     <!-- Insérer votre code HTML *en-dessous* de cette ligne -->
 
     <header>
@@ -56,46 +56,11 @@
     </section>
 
     <section id="accessoires" class="page">
-        <h1>Accessoire</h1>
+        <h1>Accessoires</h1>
         <div id="grid-container">
-            <template id="template_accessoires">
-                <div class="grid-item">
-                    <img src="images/{{accessoires-image}}.jpg">
-                    <div class="inner">
-                        <h2>{{accessoires-titre}}</h2>
-                        <p>
-                            {{accessoires-texte}}
-                        </p>
-                    </div>
-                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
-                </div>
-            </template>
 
-            <template id="template_accessoires">
-                <div class="grid-item">
-                    <img src="images/{{accessoires-image}}.jpg">
-                    <div class="inner">
-                        <h2>{{accessoires-titre}}</h2>
-                        <p>
-                            {{accessoires-texte}}
-                        </p>
-                    </div>
-                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
-                </div>
-            </template>
+            
 
-            <template id="template_accessoires">
-                <div class="grid-item">
-                    <img src="images/{{accessoires-image}}.jpg">
-                    <div class="inner">
-                        <h2>{{accessoires-titre}}</h2>
-                        <p>
-                            {{accessoires-texte}}
-                        </p>
-                    </div>
-                    <a href="www.tesla.com/fr_fr">En savoir plus</a>
-                </div>
-            </template>
         </div>
     </section>
 
@@ -107,28 +72,24 @@
             <li><a href="#accessoires">Accessoires</a></li>
         </ul>
     </footer>
-    </div>
+    
 
     <!-- Insérer votre code HTML *au-dessus* de cette ligne -->
 
-
-
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+    <template id="template_accessoires">
+        <div class="grid-item">
+            <img src="images/{{accessoires-image}}.jpg">
+            <div class="inner">
+                <h2>{{accessoires-titre}}</h2>
+                <p>
+                    {{accessoires-texte}}
+                </p>
+            </div>
+            <a href="www.tesla.com/fr_fr" target="_blank">En savoir plus</a>
+        </div>
+    </template>
 
 </body>
+
 
 </html>
