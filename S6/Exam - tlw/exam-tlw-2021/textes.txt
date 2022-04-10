@@ -1,0 +1,62 @@
+﻿# Toutes les lignes commencant par un symbole # sont des commentaires destinés au lecteur et ne doivent pas être copiés dans la page web
+
+================================================================================================
+# Section Accueil
+#Titre :
+Château de Moulinsart
+
+# Paragraphe de contenu
+Un luxe intemporel vous attend
+
+-------------------------------------------------------------------------------------------------
+# Textes de la barre de navigation :
+# - 1er item :
+Découvrir
+L'histoire du Château
+
+# - 2nd item :
+Actualités
+Expositions &amp; événements
+
+# - 3è item :
+Visites
+Informations pratiques
+
+================================================================================================
+# Section Découvrir
+# Titre :
+Découvrir
+
+# Paragraphe de contenu
+Le château de Moulinsart est situé dans la localité fictive éponyme, et imaginé par Hergé pour sa série de bande dessinée Les Aventures de Tintin. Tintin y est l'hôte du capitaine Haddock à la fin de la série. C’est dans l’album Le Secret de
+La Licorne que le château apparaît pour la première fois. Tintin découvre d'abord de vastes souterrains où il est retenu prisonnier. Des fouilles
+archéologiques dans les cryptes romanes de Nivelles et de l'abbaye Saint-Martin de Tournai sont peut-être une source d'inspiration des lieux dessinés par Hergé. Ces sites se trouvent dans la région où furent établis les Mérovingiens,
+dont le Professeur Tournesol cherche un de leurs tombeaux dans le parc de Moulinsart. Ces caves servent de dépôt d'antiquités. Pour dessiner les pièces accumulées, Hergé emprunte aux gravures publiées dans l'encyclopédie Larousse.
+Il en fera de même pour dessiner l'ameublement intérieur du château, mêlant les différentes époques...
+
+================================================================================================
+# Section Actualités
+# Titre :
+Actualités
+
+================================================================================================
+# Section Visites
+# Titre :
+Visites
+
+# Horaires :
+Le Château est ouvert tous les jours sauf le lundi, de 9h à 18h.
+
+# Tarifs :
+Ouverts tous les jours, le Parc et les jardins sont gratuits <br>(les jours de Grandes Eaux, accès aux Jardins payant)
+
+# Adresse :
+Château de Moulinsart
+Boulevard Hergé
+01234 Moulinsart
+
+# Mail :
+contact@chateau-moulinsart.fr
+
+# Téléphone :
+01 23 45 67 89

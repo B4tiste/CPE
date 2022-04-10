@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Site web</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./script.js" defer></script>
+    </head>
+
+    <body>
+        <!-- Insérer le code HTML de la page *en-dessous* de cette ligne -->
+
+        <section class="page" id="accueil">
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a href="#decouvrir">Découvrir</a>
+                        <p class="additional">L'histoire du Château</p>
+                    </li>
+                    <li>
+                        <a href="#actu">Actu</a>
+                        <p class="additional">Expositions & événements</p>
+                    </li>
+                    <li>
+                        <a href="#visites">Visites</a>
+                        <p class="additional">Informations pratiques</p>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Château de Moulinsart</h1>
+            <p>Un luxe intemporel vous attend</p>
+        </section>
+
+        <section class="page" id="decouvrir">
+            <h1>Decouvrir</h1>
+            <p>
+                Le château de Moulinsart est situé dans la localité fictive
+                éponyme, et imaginé par Hergé pour sa série de bande dessinée
+                Les Aventures de Tintin. Tintin y est l'hôte du capitaine
+                Haddock à la fin de la série. C’est dans l’album Le Secret de La
+                Licorne que le château apparaît pour la première fois. Tintin
+                découvre d'abord de vastes souterrains où il est retenu
+                prisonnier. Des fouilles archéologiques dans les cryptes romanes
+                de Nivelles et de l'abbaye Saint-Martin de Tournai sont
+                peut-être une source d'inspiration des lieux dessinés par Hergé.
+                Ces sites se trouvent dans la région où furent établis les
+                Mérovingiens, dont le Professeur Tournesol cherche un de leurs
+                tombeaux dans le parc de Moulinsart. Ces caves servent de dépôt
+                d'antiquités. Pour dessiner les pièces accumulées, Hergé
+                emprunte aux gravures publiées dans l'encyclopédie Larousse. Il
+                en fera de même pour dessiner l'ameublement intérieur du
+                château, mêlant les différentes époques...
+            </p>
+        </section>
+
+        <section class="page" id="actu">
+            <h1>Actu</h1>
+            <div class="grid-container"></div>
+        </section>
+
+        <section class="page" id="visites">
+            <h1>Visites</h1>
+
+            <!-- Iframe google maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.85905824098!2d4.81624631517098!3d45.76975587929094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea8f8b8b8b9b%3A0x9f8f8b8b8b8b8b8b!2sCh%C3%A2teau+de+Moulinsart!5e0!3m2!1sfr!2sfr!4v1536790982797" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div id="contenu-visites">
+                <ul>
+                    <li>
+                        Le Château est ouvert tous les jours sauf le lundi, de
+                        9h à 18h.
+                    </li>
+                    <li>
+                        Ouverts tous les jours, le Parc et les jardins sont
+                        gratuits <br />(les jours de Grandes Eaux, accès aux
+                        Jardins payant)
+                    </li>
+                    <li>
+                        Château de Moulinsart <br />
+                        Boulevard Hergé <br />
+                        01234 Moulinsart <br />
+                        <a href="mailto:contact@chateau-moulinsart.fr "
+                            >contact@chateau-moulinsart.fr
+                        </a>
+                        <br />
+                        <a href="tel:01 23 45 67 89">01 23 45 67 89</a> <br />
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Insérer le code HTML de la page *au-dessus* de cette ligne -->
+
+        <template id="my_template">
+            <div class="grid-item">
+                <img src="images/{{actu-image}}.jpg" />
+                <div class="inner">
+                    <h2>{{actu-titre}}</h2>
+                    <p>{{actu-texte}}</p>
+                    <a>{{actu-bouton}}</a>
+                </div>
+            </div>
+        </template>
+        <button onclick="topFunction()" id="myBtn">▲</button>
+    </body>
+</html>

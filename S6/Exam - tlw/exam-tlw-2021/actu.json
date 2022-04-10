@@ -1,0 +1,22 @@
+{
+    "tableau_actu" : [
+        {
+            "titre": "Soutenez le château",
+            "texte": "Avec la crise sanitaire, la fréquentation a chuté de 80%. Aidez le Château en faisant un don en ligne.",
+            "image": "monalisa",
+            "bouton" : "Je fais un don"
+        },
+        {
+            "titre": "Féérie des eaux",
+            "texte": "Venez assister à notre féérie des eaux nocturne, un spectacle son et lumière qui ravira les petits et les grands.",
+            "image": "feu-artifice",
+            "bouton" : "Plus d'informations"
+        },
+        {
+            "titre": "Exposition de peinture",
+            "texte": "Les plus grands maîtres de la peinture classique s'invitent au Château pour une exposition temporaire exceptionnelle.",
+            "image": "peinture",
+            "bouton" : "Billetterie"
+        }
+    ]
+}
