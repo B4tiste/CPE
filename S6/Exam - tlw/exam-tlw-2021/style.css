@@ -9,11 +9,12 @@ p {
 }
 
 .page {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #accueil {
     background-image: url(./images/accueil.jpg);
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -27,6 +28,7 @@ p {
 
 #actu {
     background-image: url(./images/actu.jpg);
+    background-attachment: fixed;
     background-size: cover;
 }
 
