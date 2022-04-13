@@ -4,33 +4,35 @@ import atelier1.nutsAndBolts.PieceSquareColor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
 /**
  * @author francoise.perrin
  * 
- * Cette classe permet de donner une image aux pièces
+ *         Cette classe permet de donner une image aux piï¿½ces
  *
  */
 
 public class PieceGui extends ImageView implements CheckersPieceGui {
-	
-	// ToDo Atelier 2
-	
-	
-	
-	@Override
-	public void promote(Image image) {
-		
-		// ToDo Atelier 2, utile pour Atelier 3
-		
-	}
 
-	@Override
-	public boolean hasSameColorAsGamer(PieceSquareColor gamerColor) {
+    private PieceSquareColor color;
+    
+    public PieceGui(Image image, PieceSquareColor color) {
+        
+        this.color = color;
+        this.setImage(image);
 
-		// ToDo Atelier 2, utile pour Atelier 4
-		
-		return false; // à changer 
-	}
-	
+    }
+
+    @Override
+    public void promote(Image image) {
+
+        this.setImage(image);
+
+    }
+
+    @Override
+    public boolean hasSameColorAsGamer(PieceSquareColor gamerColor) {
+
+        return this.color.equals(gamerColor);
+    }
+
 }
