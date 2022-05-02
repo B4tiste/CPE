@@ -96,31 +96,34 @@ void main(void)
 #endif
 
 // Activit� 3 - Test config UART - Test r�ception
-#if 0  
-					  if (RI0)
-					  {
-							 temp_char = SBUF0;
-					     SBUF0 = temp_char+1;
-					     RI0 = 0;
-						}
+#if 1
+        if (RI0)
+        {
+            temp_char = SBUF0;
+            SBUF0 = temp_char + 1;
+            RI0 = 0;
+        }
 #endif
 // Activit� 4  Putchar - utilisation de printf
-#if 0		 
-					    CP++;
-						  if (CP>=10)
-						  {   
-								  CP = 0;
-							    printf("Compteur: %u\n",CP_BCL);
-								  CP_BCL++;
-              }
+#if 1
+        CP++;
+        if (CP >= 10)
+        {
+            CP = 0;
+            printf("Compteur: %u\n", CP_BCL);
+            CP_BCL++;
+        }
 
 #endif
 // Etape 5 - Codage Getkey - utilisation de gets
-#if 0	
-             gets(buf,sizeof(buf)-1);
-             for(i=0;i<sizeof(buf);i++)
-						 { if (buf[i] !=0) buf[i]++; }
-						 printf("reponse: %s\n",buf);
+#if 1
+        gets(buf, sizeof(buf) - 1);
+        for (i = 0; i < sizeof(buf); i++)
+        {
+            if (buf[i] != 0)
+                buf[i]++;
+        }
+        printf("reponse: %s\n", buf);
 #endif
     }
 }
