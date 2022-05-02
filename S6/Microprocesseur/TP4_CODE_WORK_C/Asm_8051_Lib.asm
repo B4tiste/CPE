@@ -1,9 +1,9 @@
 ;******************************************************************************
 ;ASM8051_Lib.asm
 
-;   Ce fichier contient des routines Assembleur utiles au TP Microcontrôleur
-;   Aucune modification n'est nécessaire.
-;   Il suffit d'ajouter ce fichier à votre Projet
+;   Ce fichier contient des routines Assembleur utiles au TP Microcontrï¿½leur
+;   Aucune modification n'est nï¿½cessaire.
+;   Il suffit d'ajouter ce fichier ï¿½ votre Projet
 ;   TARGET MCU  :  C8051F020 
 
 ;******************************************************************************
@@ -31,15 +31,15 @@ Timer_UartLib     segment  CODE
 ; _fct_tempo
 ;
 ; Description: Sous-programme produisant une temporisation logicielle
-;              paramétrable par la variable csg_tempo.
-;              La temporisation générée est égale à csg_tempo micro-secondes.
-;              ATTENTION: csg_tempo ne doit pas être inférieure à 2
+;              paramï¿½trable par la variable csg_tempo.
+;              La temporisation gï¿½nï¿½rï¿½e est ï¿½gale ï¿½ csg_tempo micro-secondes.
+;              ATTENTION: csg_tempo ne doit pas ï¿½tre infï¿½rieure ï¿½ 2
 ;
-; Paramètres d'entrée:  csg_tempo dans R6(MSB) et R7(LSB)
-; Paramètres de sortie: aucun
-; Registres modifiés: R6 et R7
+; Paramï¿½tres d'entrï¿½e:  csg_tempo dans R6(MSB) et R7(LSB)
+; Paramï¿½tres de sortie: aucun
+; Registres modifiï¿½s: R6 et R7
 ; Pile: 2 octets (sauf pour l'appel de la sous -routine)
-; Pour un appel par une fonction en C: passage d'un seul paramètre déclaré en entier
+; Pour un appel par une fonction en C: passage d'un seul paramï¿½tre dï¿½clarï¿½ en entier
 ;******************************************************************************
 
 _fct_tempo:
@@ -74,11 +74,11 @@ _fct_tempo:
          RET
 ;******************************************************************************
 ;******************************************************************************
-;Initialisations de la mémoire code - Stockage de constante
+;Initialisations de la mï¿½moire code - Stockage de constante
 ;******************************************************************************
 
 ;Table de sinus
-; sin(0) = 127, sin(90°) = 255, sin(270°)= 0
+; sin(0) = 127, sin(90ï¿½) = 255, sin(270ï¿½)= 0
 Sin_table:    DB 129,132,135,138,142,145,148,151,154,157,160,163,166,169,172,175
               DB 178,181,184,186,189,192,195,197,200,202,205,207,210,212,215,217
               DB 219,221,223,225,227,229,231,233,235,236,238,240,241,243,244,245

@@ -1,4 +1,16 @@
 {
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m",
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "files.associations": {
+        "Base_TP3.C": "cpp",
+        "Base_TP3 - Correction3.C": "cpp",
+        "Base_TP4.C": "cpp",
+        "Base_TP4_Corrigé.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#40204E",
+        "titleBar.activeBackground": "#5A2D6D",
+        "titleBar.activeForeground": "#FDFBFD"
+    }
 }
