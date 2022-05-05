@@ -1,0 +1,837 @@
+1 - 
+
+db.etudiants.find(
+    {
+        'adresse.ville':'Toulouse'
+    },
+    {
+        "nom":1
+    }
+)
+
+Resultat : 
+/* 1 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT"
+}
+
+2 - 
+
+db.etudiants.find(
+    {
+        'adresse.ville':'Toulouse'
+    },
+    {
+        "nom":1,
+        "_id":0
+    }
+)
+
+Resultat : 
+/* 1 */
+{
+    "nom" : "Benarroch"
+}
+
+/* 2 */
+{
+    "nom" : "EVENOT"
+}
+
+3 - 
+
+db.etudiants.find({$or:[{'adresse.ville':'Toulouse'},{'adresse.ville':'Jonage'}]}, {'nom':1, 'prenoms':1})
+
+Resultat :
+/* 1 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "prenoms" : [ 
+        "Joshua"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ]
+}
+
+4 - 
+
+db.etudiants.find({$or:[{'adresse.ville':'Toulouse'},{'adresse.ville':'Meyzieu'}]}, {'nom':1, 'prenoms':1}).sort({_id:-1})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "prenoms" : [ 
+        "Joshua"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ]
+}
+
+5 - 
+
+db.etudiants.find({"nom" : { $in: ['Danthony', 'Laloi']}}, {'nom':1,'prenoms':1})
+
+Resultat : 
+
+/* 1 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ]
+}
+
+6 -
+
+db.etudiants.find({$and:[{'adresse.ville':'Annecy'},{'nom':'EVENOT'}]}, {'nom':1, 'prenoms':1}).sort({_id:-1})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ]
+}
+
+7 - 
+
+db.etudiants.find({'adresse.ville':{ $ne:'Toulouse'}})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : 1.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Alain", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue Arc en Ciel",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "date naissance" : ISODate("1977-08-01T15:00:00.000Z")
+}
+
+/* 2 */
+{
+    "_id" : 2.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Marc"
+    ],
+    "date naissance" : ISODate("1985-06-10T00:00:00.000Z"),
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "17 Avenue de la Concorde",
+        "ville" : "Dijon",
+        "cp" : "21000"
+    }
+}
+
+/* 3 */
+{
+    "_id" : 3.0,
+    "nom" : "MARUIL",
+    "prenoms" : [ 
+        "Antoine", 
+        "Alain"
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Arc en Ciel",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Allée George Sand",
+        "ville" : "Jonage",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 6 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Rue des Flandres",
+        "ville" : "Meyzieu",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 1.0
+}
+
+8 - 
+
+db.etudiants.find({$and:[{'adresse.ville':{ $ne:'Toulouse'}}, {'adresse.ville':{ $ne:'Annecy'}}]})
+
+Resultat : 
+
+/* 1 */
+{
+    "_id" : 2.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Marc"
+    ],
+    "date naissance" : ISODate("1985-06-10T00:00:00.000Z"),
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "17 Avenue de la Concorde",
+        "ville" : "Dijon",
+        "cp" : "21000"
+    }
+}
+
+/* 2 */
+{
+    "_id" : 3.0,
+    "nom" : "MARUIL",
+    "prenoms" : [ 
+        "Antoine", 
+        "Alain"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Allée George Sand",
+        "ville" : "Jonage",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 4 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Rue des Flandres",
+        "ville" : "Meyzieu",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 1.0
+}
+
+9 - 
+
+db.etudiants.find({$and:[{'prenoms':{ $ne:'Paul'}}, {'prenoms':{ $ne:'Maeyva'}}]})
+
+Resultats :
+
+/* 1 */
+{
+    "_id" : 2.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Marc"
+    ],
+    "date naissance" : ISODate("1985-06-10T00:00:00.000Z"),
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "17 Avenue de la Concorde",
+        "ville" : "Dijon",
+        "cp" : "21000"
+    }
+}
+
+/* 2 */
+{
+    "_id" : 3.0,
+    "nom" : "MARUIL",
+    "prenoms" : [ 
+        "Antoine", 
+        "Alain"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "prenoms" : [ 
+        "Joshua"
+    ],
+    "adresse" : {
+        "numero" : "69",
+        "rue" : "Rue de l'IPSA",
+        "ville" : "Toulouse",
+        "cp" : "31200"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 2.0
+}
+
+10 - 
+
+db.etudiants.find({$and:[{'adresse.ville':{ $eq:'Annecy'}}, {'adresse.rue':{ $ne:'Rue de la soif'}}]})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : 1.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Alain", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue Arc en Ciel",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "date naissance" : ISODate("1977-08-01T15:00:00.000Z")
+}
+
+11 - 
+
+db.etudiants.find({'annee experience': {$gt : 1}}, {'nom':1, 'annee experience':1})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "annee experience" : 3.0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "annee experience" : 3.0
+}
+
+/* 3 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "annee experience" : 2.0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "annee experience" : 3.0
+}
+
+12 - 
+
+db.etudiants.find({'notes':{$exists :1}})
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue de la soif",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Allée George Sand",
+        "ville" : "Jonage",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 3 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Rue des Flandres",
+        "ville" : "Meyzieu",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 1.0
+}
+
+/* 4 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "prenoms" : [ 
+        "Joshua"
+    ],
+    "adresse" : {
+        "numero" : "69",
+        "rue" : "Rue de l'IPSA",
+        "ville" : "Toulouse",
+        "cp" : "31200"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 2.0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Arc en Ciel",
+        "ville" : "Toulouse",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+13 - 
+
+db.etudiants.find({'prenoms': {$regex: '^P'}})
+
+Resultat
+
+/* 1 */
+{
+    "_id" : 1.0,
+    "nom" : "DURAND",
+    "prenoms" : [ 
+        "Alain", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue Arc en Ciel",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "date naissance" : ISODate("1977-08-01T15:00:00.000Z")
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue de la soif",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Allée George Sand",
+        "ville" : "Jonage",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Arc en Ciel",
+        "ville" : "Toulouse",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+14 - 
+
+db.etudiants.aggregate([{$skip : 2}])
+
+Resultat :
+
+/* 1 */
+{
+    "_id" : 3.0,
+    "nom" : "MARUIL",
+    "prenoms" : [ 
+        "Antoine", 
+        "Alain"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("62581f64ca2ad8063631f813"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Rue de la soif",
+        "ville" : "Annecy",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("625820a4ca2ad8063631f814"),
+    "nom" : "Laloi",
+    "prenoms" : [ 
+        "Batiste", 
+        "Fernand", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Allée George Sand",
+        "ville" : "Jonage",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+/* 4 */
+{
+    "_id" : 5.0,
+    "nom" : "Danthony",
+    "prenoms" : [ 
+        "Maeyva"
+    ],
+    "adresse" : {
+        "numero" : "8",
+        "rue" : "Rue des Flandres",
+        "ville" : "Meyzieu",
+        "cp" : "69330"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 1.0
+}
+
+/* 5 */
+{
+    "_id" : 6.0,
+    "nom" : "Benarroch",
+    "prenoms" : [ 
+        "Joshua"
+    ],
+    "adresse" : {
+        "numero" : "69",
+        "rue" : "Rue de l'IPSA",
+        "ville" : "Toulouse",
+        "cp" : "31200"
+    },
+    "notes" : [ 
+        8.0, 
+        15.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 2.0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("625821bcca2ad8063631f815"),
+    "nom" : "EVENOT",
+    "prenoms" : [ 
+        "Vincent", 
+        "Paul"
+    ],
+    "adresse" : {
+        "numero" : "12",
+        "rue" : "Arc en Ciel",
+        "ville" : "Toulouse",
+        "cp" : "74000"
+    },
+    "notes" : [ 
+        3.0, 
+        5.0, 
+        8.0, 
+        18.0, 
+        19.0
+    ],
+    "annee experience" : 3.0
+}
+
+15 :
+
+
+
+Resultat
+
+
+
+16 :
+
