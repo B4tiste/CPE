@@ -8,5 +8,10 @@
         "Base_TP4_Corrigé.C": "cpp",
         "Base_TP5_Corrigé.C": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#40204E",
+        "titleBar.activeBackground": "#5A2D6D",
+        "titleBar.activeForeground": "#FDFBFD"
+    }
 }
