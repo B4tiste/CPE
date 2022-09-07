@@ -1,0 +1,23 @@
+/* CSS File */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* Affichage en ligne */
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+}
+
+.searchbar {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keywords {
+    /* display: none; */
+}
