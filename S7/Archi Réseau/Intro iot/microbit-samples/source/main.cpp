@@ -1,28 +1,52 @@
 #include "MicroBit.h"
 
-MicroBit uBit;
-MicroBitThermometer termo;
+#define ROUGE uBit.io.P0
+#define ORANGE uBit.io.P1
+#define VERT uBit.io.P2
 
+MicroBit uBit;
+void sleep(int temp);
 
 int main()
 {
     // Initialise the micro:bit runtime.
     uBit.init();
 
-    int cpt = 0;
+    uBit.display.scroll("init");
 
-    while(true)
+    ROUGE.setDigitalValue(1);
+    ORANGE.setDigitalValue(1);
+    VERT.setDigitalValue(1);
+
+    sleep(500);
+
+    ROUGE.setDigitalValue(0);
+    ORANGE.setDigitalValue(0);
+    VERT.setDigitalValue(0);
+
+    sleep(250);
+
+    while (true)
     {
-        int x = uBit.accelerometer.getRoll();
-        if (x < 0)
-        {
-            cpt++;
-        }
         
-        uBit.display.scroll(cpt, 50);
+        ROUGE.setDigitalValue(1);
 
-        uBit.sleep(500);
+        sleep(1000);
+
+        ROUGE.setDigitalValue(0);
+        VERT.setDigitalValue(1);
+
+        sleep(500);
+
+        VERT.setDigitalValue(0);
+        ORANGE.setDigitalValue(1);
+
+        sleep(300);
+
+        ORANGE.setDigitalValue(0);
+
     }
+    
 
     // If main exits, there may still be other fibers running or registered event handlers etc.
     // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
@@ -30,3 +54,7 @@ int main()
     release_fiber();
 }
 
+void sleep(int temp)
+{
+    uBit.sleep(temp);
+}
