@@ -1,5 +1,7 @@
 #include "MicroBit.h"
 
+#define PREFIX "/b/"
+
 MicroBit uBit;
 MicroBitThermometer termo;
 
@@ -14,17 +16,19 @@ int main()
 
     while(1)
     {
-        if (uBit.buttonA.isPressed())
-        {
-            uBit.radio.datagram.send("/b/123");
+        int temp = termo.getTemperature();
+
+        PacketBuffer b(1);
+        b[0] = temp;
+
+        // ManagedString string_temp = ManagedString(temp);
+        if(uBit.buttonA.isPressed()){
+            uBit.display.scroll(temp);
         }
 
-        else if (uBit.buttonB.isPressed())
-        {
-            uBit.radio.datagram.send("/b/456");
-        }
+        uBit.radio.datagram.send(b);
 
-        uBit.sleep(100);
+        uBit.sleep(1000);
     }
 
 }
