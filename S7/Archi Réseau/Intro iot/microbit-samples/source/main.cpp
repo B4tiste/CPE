@@ -1,33 +1,31 @@
 #include "MicroBit.h"
-#include "neopixel.h"
-
-#define ROUGE uBit.io.P0
-#define ORANGE uBit.io.P1
-#define VERT uBit.io.P2
 
 MicroBit uBit;
-
-Neopixel neo = Neopixel(MICROBIT_PIN_P0, 1);
-
-void sleep(int temp);
+MicroBitThermometer termo;
 
 int main()
 {
     // Initialise the micro:bit runtime.
     uBit.init();
+    uBit.radio.enable();
+    uBit.radio.setGroup(14);
 
-    neo.clear();
+    uBit.display.scroll("init");
 
-    neo.setColor(0, 255, 120, 50);
-    neo.show();
+    while(1)
+    {
+        if (uBit.buttonA.isPressed())
+        {
+            uBit.radio.datagram.send("/b/123");
+        }
 
-    // If main exits, there may still be other fibers running or registered event handlers etc.
-    // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
-    // sit in the idle task forever, in a power efficient sleep.
-    release_fiber();
+        else if (uBit.buttonB.isPressed())
+        {
+            uBit.radio.datagram.send("/b/456");
+        }
+
+        uBit.sleep(100);
+    }
+
 }
 
-void sleep(int temp)
-{
-    uBit.sleep(temp);
-}
