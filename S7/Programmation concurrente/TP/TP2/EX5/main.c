@@ -5,18 +5,23 @@
 
 int main(int argc, char *argv[])
 {
-    for(int i = 1; i<argc; i++)
+    char tblProg[argc][10];
+
+    // For de chaque fichier c donné en parametre
+    for (int i = 1; i<argc; i++)
     {
-        if(!fork())
+        printf("Prog %d : %s\n", i, argv[i]);
+
+        // créer un fork sur chaque fhcier donné en parametre
+        if (!fork())
         {
-            printf("a\n");
-            char *path = strcat("/src/", strcat(argv[i], ".out"));
-            printf("%s\n", path);
-            execlp("gcc", "gcc", argv[i], "-o", path, NULL);
-        }
-        else
-        {
-            exit(0);
+            char *token = strtok(argv[i], ".");
+            printf("Compilation de : %s, %s \n", argv[i], token);
+
+            char *nomFichier = 
+
+            execlp("gcc", "gcc", strcat(argv[i], ".c"), "-o", token, NULL);
+            printf("argv:%s, token:%s\n", argv[i], token);  
         }
     }
 

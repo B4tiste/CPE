@@ -1,8 +1,10 @@
-#include <stdio.h>
+#include<stdio.h>
+#include <string.h>
 
-int main()
-{
-    printf("bonjour je suis test.c");
-
-    return 0;
+int main() {
+   char string[50] = "Hello world";
+   // Extract the first token
+   char * token = strtok(string, " ");
+   printf( " %s\n", token ); //printing the token
+   return 0;
 }

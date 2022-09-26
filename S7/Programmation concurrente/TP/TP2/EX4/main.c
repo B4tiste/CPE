@@ -4,6 +4,14 @@
 
 int main(int argc, char *argv[])
 {
+    
+    // Successivement
+    system("ls");
+    system("who");
+    system("ps");
+
+    
+    // Simultanement
     if(!fork())
     {
         if(!fork())

@@ -1,3 +1,5 @@
+# Random char file filler
+
 import os
 import random
 
