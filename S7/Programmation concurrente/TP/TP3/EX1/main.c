@@ -5,7 +5,7 @@
 
 int main()
 {
-    int fils1, fils2, n, m, tube[2];
+    int fils1, fils2, tube[2];
 
     char buffer[256];
 
