@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
     {
         signal(SIGINT, sigint_handler); 
 
-        int i = 0;
+        int i = 0; 
         while(1)
         {
             printf("Je suis le processus fils \n");
