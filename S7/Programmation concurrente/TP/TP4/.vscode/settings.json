@@ -1,0 +1,7 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.twig": "html",
+        "tp4.h": "c"
+    }
+}
