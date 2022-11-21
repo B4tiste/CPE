@@ -15,7 +15,7 @@ else :
     valide = True
 
     for note in notes :
-        if note < 0 :
+        if note < 0 or note > 20 :
             valide = False
             print(f"Note(s) non valide(s) : {note}")
         
