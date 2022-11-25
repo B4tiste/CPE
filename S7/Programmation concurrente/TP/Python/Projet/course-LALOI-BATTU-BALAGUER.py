@@ -1,3 +1,15 @@
+"""
+    
+    4IRC
+    Exercice course hippique
+    Groupe :
+        - Maxime BATTU
+        - Eileen BALAGUER
+        - Batiste LALOI
+
+"""
+
+
 # Cours hippique
 # Version très basique, sans mutex sur l'écran, sans arbitre, sans annoncer le gagant, ... ...
 
@@ -101,7 +113,7 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence �
         move_to(ma_ligne+1,col)         # pour effacer toute ma ligne
         erase_line_from_beg_to_curs()
         en_couleur(lyst_colors[ma_ligne%len(lyst_colors)])
-        print(f"+|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)} |")
+        print(f"+|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)}|")
 
         leaderboard[ma_ligne] = col
 
@@ -113,12 +125,15 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence �
             with resultats.get_lock():
                 resultats[ma_ligne] = rang.value
                 rang.value += 1
+                move_to(ma_ligne + 1, LONGUEUR_COURSE+1 + 10)
+                en_couleur(CL_WHITE)
+                print(f"Finis ! {resultats[ma_ligne]}e")
                 
 # ---------------------------------------------------
 # La partie principale :
 if __name__ == "__main__" :
 
-    LONGUEUR_COURSE = 50 # Tout le monde aura la même copie (donc no need to have a 'value')
+    LONGUEUR_COURSE = 10 # Tout le monde aura la même copie (donc no need to have a 'value')
     keep_running=mp.Value(ctypes.c_bool, True)
     lettres = [chr(ord('A')+i) for i in range(NB_PROCESS)]
     predicton = input(f"Entrer une lettre entre A et {lettres[-1]} : ")
