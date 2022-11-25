@@ -44,16 +44,24 @@ CL_LIGHTCYAN="\033[01;36m"              #  Cyan clair
 CL_WHITE="\033[01;37m"                  #  Blanc
 
 #-------------------------------------------------------
+
 import multiprocessing as mp
  
-import os, time,math, random, sys, ctypes
+import os, time, math, random, sys, ctypes, numpy as np
 
-#-------------------------------------------------------
-
-NB_PROCESS = 6
+# Constantes
+NB_PROCESS=20
 OFFSET = 5
 
-tubes = []
+# Variables partagées
+leaderboard = mp.Array(ctypes.c_int, NB_PROCESS)
+resultats = mp.Array(ctypes.c_int, NB_PROCESS)
+finished = mp.Value('i', 0)
+rang = mp.Value(ctypes.c_int, 1)
+gagnant = ""
+perdant = ""
+
+#-------------------------------------------------------
 
 # Une liste de couleurs à affecter aléatoirement aux chevaux
 lyst_colors=[CL_WHITE, CL_RED, CL_GREEN, CL_BROWN , CL_BLUE, CL_MAGENTA, CL_CYAN, CL_GRAY,
@@ -68,63 +76,72 @@ def move_to(lig, col) : print("\033[" + str(lig) + ";" + str(col) + "f",end='')
 def en_couleur(Coul) : print(Coul,end='')
 def en_rouge() : print(CL_RED,end='') # Un exemple !
 
+# Referee
+def arbitre(keep_running, leaderboard) :
+    while keep_running.value :
+        move_to(NB_PROCESS+OFFSET+2, 10)
+        erase_line_from_beg_to_curs()
+        en_couleur(CL_WHITE)
+
+        print(f"Leader : {chr(ord('A') + np.argmax(leaderboard))} - Dernier : {chr(ord('A') + np.argmin(leaderboard))}")
+
+        if finished.value == NB_PROCESS - 1 :
+            keep_running.value = False
+
+        time.sleep(0.1)
 
 # La tache d'un cheval
-def un_cheval(ma_ligne : int, keep_running, pos) :
+def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence à 0
+
     col=1
 
-    while col < LONGEUR_COURSE and keep_running.value :
+    while col < LONGUEUR_COURSE and keep_running.value :
         move_to(ma_ligne+1,col)         # pour effacer toute ma ligne
         erase_line_from_beg_to_curs()
         en_couleur(lyst_colors[ma_ligne%len(lyst_colors)])
         print('('+chr(ord('A')+ma_ligne)+'>')
-        
-        # Ecrire la position du cheval dans la liste partagée
-        # pos[ma_ligne] = col
 
-        col+=1
+        leaderboard[ma_ligne] = col
+
+        col += 1
         time.sleep(0.1 * random.randint(1,5))
 
-        
-def arbitre(keep_running, pos) :
-    while keep_running:
-        move_to(NB_PROCESS+2,1)
-        erase_line_from_beg_to_curs()
-
-        for i in range(2):
-            print(pos[i], end=' ')
-
-        time.sleep(0.5)
-
-
+        if col == LONGUEUR_COURSE :
+            finished.value += 1
+            with resultats.get_lock():
+                resultats[ma_ligne] = rang.value
+                rang.value += 1
+                
 # ---------------------------------------------------
 # La partie principale :
 if __name__ == "__main__" :
                  
-    LONGEUR_COURSE = 10
+    LONGUEUR_COURSE = 10 # Tout le monde aura la même copie (donc no need to have a 'value')
     keep_running=mp.Value(ctypes.c_bool, True)
-    pos = mp.Array('i', 5) # Tableau de NB_PROCESS entiers
-    for i in range(5) :
-        pos[i] = -1
+
+    # course_hippique(keep_running)
      
     mes_process = [0 for i in range(NB_PROCESS)]
-    
+
     effacer_ecran()
     curseur_invisible()
 
-    for i in range(NB_PROCESS):  # Lancer   Nb_process  processus
-        mes_process[i] = mp.Process(target=un_cheval, args= (i, keep_running, pos))
+    # Referee that looks fot the horse in first place and the one in last place
+    arbitre = mp.Process(target=arbitre, args=(keep_running, leaderboard))
+    arbitre.start()
+
+    for i in range(NB_PROCESS):  # Lancer Nb_process processus
+        mes_process[i] = mp.Process(target=un_cheval, args= (i,keep_running, leaderboard))
         mes_process[i].start()
-    
-    mes_process[-1] = mp.Process(target=arbitre, args= (keep_running, pos))
-    mes_process[-1].start()
 
-    move_to(NB_PROCESS + OFFSET, 1)
-    print("Course lancée")
+    for i in range(NB_PROCESS): mes_process[i].join()
 
+    move_to(NB_PROCESS + OFFSET + 2, 1)
+    print(CLEARELN)
+    classement_final = [chr(ord('A') + i) for i in np.argsort(resultats)]
+    print("Clasement : ")
     for i in range(NB_PROCESS):
-        mes_process[i].join()    
-
-    move_to(NB_PROCESS + OFFSET, 1)
+        print(f"{i+1} : {classement_final[i]}")
+    
+    move_to(NB_PROCESS+OFFSET+5+NB_PROCESS, 0)
     curseur_visible()
-    print("Course terminée")
