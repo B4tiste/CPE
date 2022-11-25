@@ -53,6 +53,7 @@ import os, time, math, random, sys, ctypes, numpy as np
 NB_PROCESS=20
 OFFSET = 5
 
+
 # Variables partagées
 leaderboard = mp.Array(ctypes.c_int, NB_PROCESS)
 resultats = mp.Array(ctypes.c_int, NB_PROCESS)
@@ -83,10 +84,11 @@ def arbitre(keep_running, leaderboard) :
         erase_line_from_beg_to_curs()
         en_couleur(CL_WHITE)
 
-        print(f"Leader : {chr(ord('A') + np.argmax(leaderboard))} - Dernier : {chr(ord('A') + np.argmin(leaderboard))}")
-
-        if finished.value == NB_PROCESS - 1 :
+        if finished.value == NB_PROCESS :
+            move_to(NB_PROCESS+OFFSET+5+NB_PROCESS, 0)
             keep_running.value = False
+        else :
+            print(f"Leader : {chr(ord('A') + np.argmax(leaderboard))} - Dernier : {chr(ord('A') + np.argmin(leaderboard))}")
 
         time.sleep(0.1)
 
@@ -99,7 +101,7 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence �
         move_to(ma_ligne+1,col)         # pour effacer toute ma ligne
         erase_line_from_beg_to_curs()
         en_couleur(lyst_colors[ma_ligne%len(lyst_colors)])
-        print('('+chr(ord('A')+ma_ligne)+'>')
+        print(f"+|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)} |")
 
         leaderboard[ma_ligne] = col
 
@@ -115,11 +117,14 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence �
 # ---------------------------------------------------
 # La partie principale :
 if __name__ == "__main__" :
-                 
-    LONGUEUR_COURSE = 10 # Tout le monde aura la même copie (donc no need to have a 'value')
-    keep_running=mp.Value(ctypes.c_bool, True)
 
-    # course_hippique(keep_running)
+    LONGUEUR_COURSE = 50 # Tout le monde aura la même copie (donc no need to have a 'value')
+    keep_running=mp.Value(ctypes.c_bool, True)
+    lettres = [chr(ord('A')+i) for i in range(NB_PROCESS)]
+    predicton = input(f"Entrer une lettre entre A et {lettres[-1]} : ")
+
+    while predicton not in lettres :
+        predicton = input(f"Erreur ! Entrer une lettre entre A et {lettres[-1]} : ")
      
     mes_process = [0 for i in range(NB_PROCESS)]
 
@@ -143,5 +148,9 @@ if __name__ == "__main__" :
     for i in range(NB_PROCESS):
         print(f"{i+1} : {classement_final[i]}")
     
-    move_to(NB_PROCESS+OFFSET+5+NB_PROCESS, 0)
+    if classement_final[0] == predicton.upper() :
+        print(f"Vous avez gagné ! Le gagnant est {classement_final[0]}")
+    else :
+        print(f"Vous avez perdu ! Le gagnant est : {classement_final[0]}")
+    
     curseur_visible()
