@@ -62,9 +62,8 @@ import multiprocessing as mp
 import os, time, math, random, sys, ctypes, numpy as np
 
 # Constantes
-NB_PROCESS=20
+NB_PROCESS = 20
 OFFSET = 5
-
 
 # Variables partagÃ©es
 leaderboard = mp.Array(ctypes.c_int, NB_PROCESS)
@@ -113,7 +112,11 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence Ã
         move_to(ma_ligne+1,col)         # pour effacer toute ma ligne
         erase_line_from_beg_to_curs()
         en_couleur(lyst_colors[ma_ligne%len(lyst_colors)])
-        print(f"+|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)}|")
+        if col %2 :
+            print(f"+|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)}|")
+        else :
+            print(f"x|__{chr(ord('A')+ma_ligne)}__/{' '*(LONGUEUR_COURSE-col-1)}|")
+
 
         leaderboard[ma_ligne] = col
 
@@ -133,7 +136,7 @@ def un_cheval(ma_ligne : int, keep_running, leaderboard) : # ma_ligne commence Ã
 # La partie principale :
 if __name__ == "__main__" :
 
-    LONGUEUR_COURSE = 10 # Tout le monde aura la mÃªme copie (donc no need to have a 'value')
+    LONGUEUR_COURSE = 100 # Tout le monde aura la mÃªme copie (donc no need to have a 'value')
     keep_running=mp.Value(ctypes.c_bool, True)
     lettres = [chr(ord('A')+i) for i in range(NB_PROCESS)]
     predicton = input(f"Entrer une lettre entre A et {lettres[-1]} : ")
