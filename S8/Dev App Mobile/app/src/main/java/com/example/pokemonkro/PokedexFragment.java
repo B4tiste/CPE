@@ -20,7 +20,7 @@ public class PokedexFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         PokedexFragmentBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.pokedex_fragment,container,false);
+                R.layout.pokedex_fragment, container, false);
         binding.pokemonList.setLayoutManager(new LinearLayoutManager(
                 binding.getRoot().getContext()));
         return binding.getRoot();
