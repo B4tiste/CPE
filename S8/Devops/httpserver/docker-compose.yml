@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+    backend:
+        build:
+        #TODO
+        networks:
+        #TODO
+        depends_on:
+        #TODO
+
+    database:
+        build:
+        #TODO
+        networks:
+        #TODO
+
+    httpd:
+        build:
+        #TODO
+        ports:
+        #TODO
+        networks:
+        #TODO
+        depends_on:
+        #TODO
+
+networks:
+    my-network:
