@@ -1,1 +1,0 @@
-java -cp json-20220924.jar PokemonRetriever.java > poke.json
