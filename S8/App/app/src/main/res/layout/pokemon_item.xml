@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-    <data/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="pokemonViewModel"
+            type="com.example.app.PokemonViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#c6cfcf"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="#c6cfcf">
+
         <ImageView
             android:id="@+id/front"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:src="@drawable/p3"
-        app:layout_constraintBottom_toTopOf="@id/separator"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toStartOf="@id/name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:scaleType="centerInside"
+            android:src="@{pokemonViewModel.getImage(context, pokemonViewModel.frontResource)}"
+            app:layout_constraintBottom_toTopOf="@id/separator"
+            app:layout_constraintEnd_toStartOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <TextView
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:id="@+id/name"
-            app:layout_constraintStart_toEndOf="@id/front"
-            app:layout_constraintEnd_toStartOf="@id/number"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/type1_text"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{pokemonViewModel.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@id/type1_text"
+            app:layout_constraintEnd_toStartOf="@id/number"
+            app:layout_constraintStart_toEndOf="@id/front"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/type1_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
+            android:text="@{pokemonViewModel.type1String}"
             app:layout_constraintBottom_toTopOf="@id/separator"
             app:layout_constraintEnd_toStartOf="@id/type2_text"
             app:layout_constraintStart_toEndOf="@id/front"
@@ -43,25 +54,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
+            android:text="@{pokemonViewModel.type2String}"
             app:layout_constraintBottom_toTopOf="@id/separator"
             app:layout_constraintEnd_toStartOf="@id/number"
             app:layout_constraintStart_toEndOf="@id/type1_text"
             app:layout_constraintTop_toBottomOf="@id/name" />
+
         <TextView
             android:id="@+id/number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/separator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:text="@{pokemonViewModel.number}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@id/separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             style="?android:attr/listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

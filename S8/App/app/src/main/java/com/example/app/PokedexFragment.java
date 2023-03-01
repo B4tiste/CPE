@@ -24,6 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PokedexFragment extends Fragment {
+
+    private OnClickOnPokemonListener listener;
+
+    public void setListener(OnClickOnPokemonListener listener) {
+        this.listener = listener;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -83,6 +90,7 @@ public class PokedexFragment extends Fragment {
         }
 
         PokemonListAdapter adapter = new PokemonListAdapter(pokemonList);
+        adapter.setOnPokemonClickListener(listener);
         binding.pokemonList.setAdapter(adapter);
 
         return binding.getRoot();

@@ -14,10 +14,15 @@ import java.util.List;
 public class PokemonListAdapter extends
         RecyclerView.Adapter<PokemonListAdapter.ViewHolder> {
     List<Pokemon> pokemonList;
+    private OnClickOnPokemonListener listener;
 
     public PokemonListAdapter(List<Pokemon> pokemonList) {
         assert pokemonList != null;
         this.pokemonList = pokemonList;
+    }
+
+    public void setOnPokemonClickListener(OnClickOnPokemonListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -32,13 +37,12 @@ public class PokemonListAdapter extends
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Pokemon pokemon = pokemonList.get(position);
-        holder.binding.front.setImageResource(pokemon.getFrontResource());
-        holder.binding.name.setText(pokemon.getName());
-        holder.binding.type1Text.setText(pokemon.getType1String());
-        holder.binding.number.setText("#" + pokemon.getOrder());
-        if (pokemon.getType2() != null) {
-            holder.binding.type2Text.setText(pokemon.getType2String());
-        }
+        holder.viewModel.setPokemon(pokemon);
+        holder.binding.getRoot().setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onClickOnPokemon(pokemon);
+            }
+        });
     }
 
     @Override
@@ -48,10 +52,12 @@ public class PokemonListAdapter extends
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         private PokemonItemBinding binding;
+        private PokemonViewModel viewModel = new PokemonViewModel();
 
         ViewHolder(PokemonItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            this.binding.setPokemonViewModel(viewModel);
         }
     }
 }
