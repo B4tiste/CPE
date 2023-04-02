@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-        <data/>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+        <data>
+
+                <variable
+                    name="pokemonViewModel"
+                    type="com.example.app.PokemonViewModel" />
+        </data>
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
-
+        <!-- Texte centré "Informations Pokémon" -->
         <TextView
-            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Informations Pokémon"
+            android:textSize="20sp" />
+
+        <!-- Image du Pokémon -->
+        <ImageView
+            android:id="@+id/front"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BONJOUR" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerInside"
+            android:src="@{pokemonViewModel.getImage(context, pokemonViewModel.frontResource)}" />
+
 
 </LinearLayout>
 </layout>
