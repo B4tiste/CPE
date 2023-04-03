@@ -20,11 +20,11 @@ The goal of this project was to create a recommendation system to give images th
 
 We decided to work with Pokémons, and here are the two datasets we used for our project :
 
-1. [Pokemon Images Dataset](https://www.kaggle.com/datasets/kvpratama/pokemon-images-dataset) | License : CC0: Public Domain → We can use it freely for any purpose, even commercial purposes.
+1. [Pokémon Images Dataset](https://www.kaggle.com/datasets/kvpratama/pokemon-images-dataset) | License : CC0: Public Domain → We can use it freely for any purpose, even commercial purposes.
 
-2. [Pokemon Image Dataset](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types) | License : Attribution 4.0 International (CC BY 4.0) → We can use it freely for any purpose, even commercial purposes, as long as we give credit to the author.
+2. [Pokémon Image Dataset](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types) | License : Attribution 4.0 International (CC BY 4.0) → We can use it freely for any purpose, even commercial purposes, as long as we give credit to the author.
 
-We used the images from the first one because they are way smaller and easier to work with. The second one was only used to get the type of each pokemon, which we used to sync types with each Pokémon.
+We used the images from the first one because they are way smaller and easier to work with. The second one was only used to get the type of each Pokémon, which we used to sync types with each Pokémon.
 
 Every data not used in the dataset is deleted, and we only keep the name of the first 151 Pokémons, their type, and the corresponding thumbmail, all of which is stored in a folder named "data".
 
@@ -51,7 +51,7 @@ By combining the metadata, the colors and the types from the csv file, we end up
 
 Here is an example of a the final data stored for the Pokémon **Dragonite** :
 ```json
-// data.json
+// data.json data extract
 {
     "148":{
         [...]
@@ -76,9 +76,7 @@ Here is an example of a the final data stored for the Pokémon **Dragonite** :
             "tan"
         ]
     },
-    "150": {
-        [...]
-    }
+    [...]
 }
 ```
 
@@ -86,44 +84,47 @@ To extract the color name from the RGB values, we used the **webcolors** Python 
 
 ## Information concerning user preferences <a name="user"></a>
 
-We decided to discriminate the Pokémon by their types and the most used colors in their images. We saved the final user preferences in a .json file, called users.json, wich looks like this :
+We decided to discriminate the Pokémon by their types and the most used colors in their images. We saved the final user preferences in a .json file, called users.json, which looks like this :
 ```json
-// users.json
-{
-    "id": 0,
-    "name": "user0",
-    "images_list": [
-        123,
-        34,
-        [...]
-    ],
-    "favorite_types": {
-        "Poison": 3,
-        "Psychic": 2,
-        [...]
-    },
-    "favorite_colors": {
-        "dimgray": 5,
-        "darkslategray": 4,
-        [...]
-    },
-    "liked_images": [
-        [
-            11,
-            true
+// users.json data extract
+[
+    {
+        "id": 0,
+        "name": "user0",
+        "images_list": [
+            123,
+            34,
+            [...]
         ],
-        [
-            151,
-            true
+        "favorite_types": {
+            "Poison": 3,
+            "Psychic": 2,
+            [...]
+        },
+        "favorite_colors": {
+            "dimgray": 5,
+            "darkslategray": 4,
+            [...]
+        },
+        "liked_images": [
+            [
+                11,
+                true
+            ],
+            [
+                151,
+                true
+            ],
+            [...]
         ],
-        [...]
-    ],
-    "recommended_images": [
-        "3",
-        "44",
-        "34"
-    ]
-}
+        "recommended_images": [
+            "3",
+            "44",
+            "34"
+        ]
+    },
+    [...]
+]
 ```
 
 Each user is first assigned a random list of 10 Pokémons to see. Then, random likes or dislikes are assigned to each images, from which we can get the favorite types and colors of the user, by mesuring the number of occurence of each type and color in the liked images.
@@ -134,23 +135,22 @@ Each user is first assigned a random list of 10 Pokémons to see. Then, random l
 
 We implemented a content-based recommendation system in this project, focusing on recommending Pokémon images based on the content of the images rather than user behavior. The system takes into account the metadata, colors, and types of each image to make recommendations tailored to the user's preferences.
 
-Using a clustering approach with the MiniBatchKMeans algorithm, the system first preprocesses the data by extracting features from the Pokémon images and grouping them into clusters. It then determines the user's favorite types and colors based on the images they liked and identifies the cluster that best matches their preferences.
+Using a clustering approach with the MiniBatchKMeans algorithm, the system first preprocesses the data by extracting features from the Pokémon images and grouping them into clusters. It then determines the user's favorite types and colors based on the images they liked and identifies the cluster that matches best their preferences.
 
 This content-based recommendation system suggests new Pokémon images to the user by selecting images from the closest matching cluster that the user hasn't liked yet. The recommendations are made by comparing the similarity of the images' features, specifically their metadata, colors, and types, to the user's preferences.
 
-Here is an example of the recommended Pokémon images (the three on the bottom line) to a user that mainly liked of purple-ish Pokémons and Poison-type Pokémons :
+Here is an example of the recommended Pokémon images (the three on the bottom line) to a user that mainly liked purple-ish and/or Poison-type Pokémons :
 
-![output](img_rapport/reco.png)
+![output](img_rapport/reco.png)  
+*Example of our recommendation system : Pokémons liked by the user (upper line), and recommended Pokémons based on the liked images (bottom line)*
 
 ## Self-evaluation of our work <a name="self"></a>
 
-We are satisfied with the result of our project, as we managed to create a recommendation system that works well. We are also satisfied with the way we worked together. However, our model is does not take into account the shape or the cuteness of the Pokémons, which are two big factors when it comes to choosing a Pokémon. As our first AI/ML project, we are proud of what we achieved, an it was a satysfing to see all the different steps of a machine learning project.
+We are satisfied with the result of our project, as we managed to create a recommendation system that works well. We are also satisfied with the way we worked together. However, our model does not take into account the shape or the cuteness of the Pokémons, which are two big factors when it comes to choosing a Pokémon. As our first AI/ML project, we are proud of what we achieved, and it was satisfying to see all the different steps of a Machine Learning project.
 
 <br>
 <br>
-<br>
-
 
 ## Conclusion <a name="conclusion"></a>
 
-We are proud of what we achieved, and we are satisfied with the result of our project. We learned a lot about the different steps of a machine learning project, and we are now able to create a recommendation system from scratch. We also learned a lot about the different Python libraries we used, and we hope to be able to use them in future projects.
+We are very satisfied with the result of our project. We learned a lot about the different steps of a machine learning project, and we are now able to create a recommendation system from scratch. We also learned a lot about the different Python libraries we used, and we hope to be able to use them in future projects.
