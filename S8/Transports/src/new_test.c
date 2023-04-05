@@ -62,12 +62,7 @@ int set_accelerateur(int *p_s, struct can_frame *p_frame, int accelerateur_pourc
 int set_frein(int *p_s, struct can_frame *p_frame, int frein_pourcentage);
 
 // Gestion de la direction
-/**
- * Permet de régler la direction de la voiture
- * @param direction : la direction à laquelle on veut que la voiture tourne
- * @return int
- */
-int set_direction(int direction_pourcentage);
+int set_direction(int *p_s, struct can_frame *p_frame, int direction_pourcentage);
 
 
 int main()
@@ -122,6 +117,11 @@ int main()
     if (eteindre_clignotants(p_s, p_frame) != 0) printf("Erreur lors de l'extinction des clignotants\r");
     sleep(1);
 
+    // Tests de la direction
+    // Volant à 50%
+    if (set_direction(p_s, p_frame, 50) != 0) printf("Erreur lors du changement de direction\r");
+    sleep(1);
+
     // Tests de la vitesse
     // Accélérateur à 50%
     if (set_accelerateur(p_s, p_frame, 50) != 0) printf("Erreur lors du changement de vitesse\r");
@@ -133,7 +133,7 @@ int main()
 
     // Frein à 50%
     if (set_frein(p_s, p_frame, 50) != 0) printf("Erreur lors du changement de vitesse\r");
-    sleep(5);
+    sleep(2);
 
     // Frein à 0%
     if (set_frein(p_s, p_frame, 0) != 0) printf("Erreur lors du changement de vitesse\r");
@@ -295,12 +295,32 @@ int set_frein(int *p_s, struct can_frame *p_frame, int frein_pourcentage)
 }
 
 
-// int set_direction(int direction_pourcentage)
-// {
-//     // TODO
+int set_direction(int *p_s, struct can_frame *p_frame, int direction_pourcentage)
+{
+    // Check if the percentage value is within the valid range (-100-100)
+    if (direction_pourcentage < -100 || direction_pourcentage > 100) {
+        printf("Invalid direction_pourcentage value, must be between -100 and 100.\r");
+        return 1;
+    }
 
-//     return 0;
-// }
+    /*
+        Range :
+        Left : 0x01 to 0x64
+        Right : 0xFF to 0x9C (In a decrescent order)
+    */
+
+    // Initialize the CAN frame
+    if (conf_can_id_and_data_size(p_frame, 0x321, 3) != 0) return 1;
+
+    // We want to send 00 00 XX to create this frame : 321#0000XX
+    int data[3] = {0x00, 0x00, direction_pourcentage};
+    if (inject_data(p_frame, 3, data) != 0) return 1;
+
+    // Send data to the can
+    if (send_data_to_frame(p_s, p_frame) != 0) return 1;
+
+    return 0;
+}
 
 int init_can(int *p_s, struct sockaddr_can *p_addr, struct ifreq *p_ifr)
 {
