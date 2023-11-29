@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7b34eda-baea-41f4-a1b0-026ec0f5a247" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/auth/helloworld.proto" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/auth/helloworld.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/debug/helloworld.proto" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/debug/helloworld.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/helloworld/greeter_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/helloworld/greeter_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/wait_for_ready/helloworld.proto" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/examples/python/wait_for_ready/helloworld.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/spm-core-include/grpc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/spm-cpp-include/grpcpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/http/python_wrapper.sh" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/http/python_wrapper.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls/ab06acdd.r0" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls/ab06acdd.r0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls/b9322cac.r0" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls/b9322cac.r0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls_missing_intermediate/ab06acdd.r0" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls_missing_intermediate/ab06acdd.r0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls_missing_root/b9322cac.r0" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/core/tsi/test_creds/crl_data/crls_missing_root/b9322cac.r0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/distrib/bazel/cpp/tools/bazel" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/distrib/bazel/cpp/tools/bazel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/distrib/bazel/python/tools/bazel" beforeDir="false" afterPath="$PROJECT_DIR$/S8/ASI/day2/grpc/test/distrib/bazel/python/tools/bazel" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2QEb06KyVXlfMMoT1SnUJhE3gyN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/batis/Desktop/CPE",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7b34eda-baea-41f4-a1b0-026ec0f5a247" name="Changes" comment="" />
+      <created>1684921461872</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684921461872</updated>
+      <workItem from="1684921462948" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

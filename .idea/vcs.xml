@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/ASI/Projet/asi1-springboot-tuto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/ASI/Projet/asi1-visual-content" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/ASI/day2/RPC_Experiment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/ASI/day2/grpc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/Transports/Rendus TP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/S8/Transports/sadt_student" vcs="Git" />
+  </component>
+</project>
