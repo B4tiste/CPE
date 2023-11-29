@@ -62,12 +62,13 @@ Développer un système logiciel pour un TurtleBot qui navigue dans un espace, i
 
 ## Objectif prioritaire
 
-Le robot doit pouvoir se mouvoir de manière autonome dans un espace, pour prendre des objets et les déplacer dans un espace de stockage. Tout ça codé en ROS2.
+Le robot doit pouvoir se mouvoir de manière autonome dans un espace, pour prendre des objets et les déplacer dans un espace de stockage. L'utilisation de ROS2 est primordial
 
 Fonctionnalités a assurer en priorité :
 - Déplacement autonome
 - Déplacement du bras
 - Detection, Ramassage, dépôt et tri d'items au sol
+- Possibilité de travailler avec une différenciation des objets et des zones de stockage
 
 ```mermaid
 graph TD;
