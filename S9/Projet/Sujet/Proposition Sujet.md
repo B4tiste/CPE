@@ -2,6 +2,31 @@
 
 ![Image](./image/sujet.png)
 
+```mermaid
+graph TD;
+    A[Utilisateur] -->|Commandes Vocales| B[Module Speech to Text]
+    B -->|Texte Interprété| C[Contrôleur Principal]
+    C -->|Instructions de Navigation| D[Module de Navigation]
+    C -->|Instructions de Préhension| E[Module de Préhension]
+    D -->|Données de Cartographie| F[Capteurs LIDAR/Ultrasoniques]
+    D -->|Détection d'Obstacles| G[Caméra et Vision par Ordinateur]
+    G -->|Identification d'Objets| C
+    E -->|Manipulation d'Objets| H[Bras Robotique/Mécanisme de Préhension]
+    C -->|Feedback| I[Interface Utilisateur]
+    I -->|Visualisation et Contrôle| A
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#fb4,stroke:#333,stroke-width:2px
+    style D fill:#f96,stroke:#333,stroke-width:2px
+    style E fill:#9f6,stroke:#333,stroke-width:2px
+    style F fill:#6cf,stroke:#333,stroke-width:2px
+    style G fill:#fc6,stroke:#333,stroke-width:2px
+    style H fill:#ff6,stroke:#333,stroke-width:2px
+    style I fill:#6f9,stroke:#333,stroke-width:2px
+
+```
+
 ## Objectif Global
 Développer un système logiciel pour un TurtleBot qui navigue dans un espace, identifie, trie, et range des objets dispersés (balles, objets en plastique, etc.) dans une zone de stockage définie, avec la possibilité de recevoir des instructions vocales.
 
@@ -34,3 +59,12 @@ Développer un système logiciel pour un TurtleBot qui navigue dans un espace, i
 ### 7. Documentation Technique
 - **Guide d'Utilisation** : Instructions pour l'opération et la maintenance.
 - **Rapport de Projet** : Analyse des méthodes, algorithmes, et résultats obtenus.
+
+## Objectif prioritaire
+
+Le robot doit pouvoir se mouvoir de manière autonome dans un espace, pour prendre des objets et les déplacer dans un espace de stockage. Tout ça codé en ROS2.
+
+Fonctionnalités a assurer en priorité :
+- Déplacement autonome
+- Déplacement du bras
+- Detection, Ramassage, dépôt et tri d'items au sol
