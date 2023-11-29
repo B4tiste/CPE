@@ -72,29 +72,24 @@ Fonctionnalités a assurer en priorité :
 
 ```mermaid
 graph TD;
-    A[Contrôleur ROS2] -->|Gestion de la Navigation| B[Module de Navigation]
-    A -->|Commande du Bras Robotique| C[Module de Préhension]
-    A -->|Reconnaissance et Tri d'Objets| D[Module de Vision par Ordinateur]
-
-    B -->|Données de Cartographie| E[Capteurs LIDAR/Ultrasoniques]
-    B -->|Évitement d'Obstacles| F[Capteurs de Proximité]
-
-    C -->|Manipulation d'Objets| G[Bras Robotique]
-
-    D -->|Détection d'Objets| H[Caméra]
-    D -->|Tri d'Objets| I[Algorithme de Classification]
-
-    G -->|Ramassage et Dépôt d'Objets| J[Zone de Stockage]
+    A[ROS2 Core] -->|Gestion de Tâches| B[Module de Déplacement Autonome]
+    A -->|Contrôle du Bras| C[Module de Manipulation du Bras]
+    B -->|Navigation| D[Capteurs de Navigation]
+    C -->|Préhension/Dépôt| E[Bras Robotique]
+    A -->|Traitement Visuel| F[Module de Vision par Ordinateur]
+    F -->|Détection d'Objets| G[Caméra]
+    F -->|Tri et Identification| H[Algorithme de Tri]
+    E -->|Ramassage des Objets| I[Zone de Ramassage]
+    E -->|Dépôt des Objets| J[Zone de Stockage Différenciée]
 
     style A fill:#f96,stroke:#333,stroke-width:2px
-    style B fill:#ff6,stroke:#333,stroke-width:2px
-    style C fill:#6f9,stroke:#333,stroke-width:2px
-    style D fill:#fc6,stroke:#333,stroke-width:2px
-    style E fill:#6cf,stroke:#333,stroke-width:2px
+    style B fill:#6cf,stroke:#333,stroke-width:2px
+    style C fill:#fc6,stroke:#333,stroke-width:2px
+    style D fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#ff6,stroke:#333,stroke-width:2px
     style F fill:#bbf,stroke:#333,stroke-width:2px
     style G fill:#9f6,stroke:#333,stroke-width:2px
-    style H fill:#f9f,stroke:#333,stroke-width:2px
-    style I fill:#fb4,stroke:#333,stroke-width:2px
-    style J fill:#b6f,stroke:#333,stroke-width:2px
-
+    style H fill:#fb4,stroke:#333,stroke-width:2px
+    style I fill:#6f9,stroke:#333,stroke-width:2px
+    style J fill:#f66,stroke:#333,stroke-width:2px
 ```
